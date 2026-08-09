@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alif Firdaus Azhar · Software Engineer</title>
+  <!-- Bootstrap 5 + Icons + Google Font -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- DARK THEME OVERRIDES ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0e0e18;
+      color: #e8edf5;
+      scroll-behavior: smooth;
+    }
+    /* navbar — dark glass */
+    .navbar {
+      background: rgba(14, 14, 24, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #7aa9ff !important;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: #ccd6f0 !important;
+      transition: 0.2s;
+      margin: 0 6px;
+    }
+    .nav-link:hover {
+      color: #7aa9ff !important;
+    }
+    .btn-outline-primary {
+      border-width: 2px;
+      font-weight: 600;
+      color: #7aa9ff;
+      border-color: #7aa9ff;
+    }
+    .btn-outline-primary:hover {
+      background: #7aa9ff;
+      color: #0e0e18;
+      border-color: #7aa9ff;
+    }
+    /* hero */
+    .hero {
+      padding: 80px 0 70px;
+      background: linear-gradient(145deg, #0e0e18 0%, #181826 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .hero h1 {
+      font-weight: 700;
+      font-size: 3.2rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #f0f4ff;
+    }
+    .hero .highlight {
+      background: linear-gradient(135deg, #7aa9ff, #b28aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero .lead {
+      color: #b0bedb;
+      max-width: 540px;
+      font-weight: 400;
+    }
+    .hero .btn-group .btn {
+      border-radius: 40px;
+      padding: 12px 32px;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: #7aa9ff;
+      border: none;
+      color: #0e0e18;
+      font-weight: 600;
+    }
+    .btn-primary:hover {
+      background: #9bbdff;
+      color: #0e0e18;
+    }
+    .btn-outline-secondary {
+      color: #b0bedb;
+      border-color: #3a4055;
+    }
+    .btn-outline-secondary:hover {
+      background: #2a2f42;
+      color: #f0f4ff;
+      border-color: #5a6480;
+    }
+    .hero-avatar {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(145deg, #1f2438, #131724);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 40px -8px rgba(0,0,0,0.8);
+      border: 4px solid #2a2f42;
+    }
+    .hero-avatar i {
+      font-size: 5.5rem;
+      color: #7aa9ff;
+    }
+    /* section titles */
+    .section-title {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      position: relative;
+      display: inline-block;
+      color: #f0f4ff;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, #7aa9ff, #b28aff);
+      border-radius: 10px;
+    }
+    .text-secondary {
+      color: #a8b6d4 !important;
+    }
+    /* cards – dark */
+    .card {
+      border: 1px solid rgba(255,255,255,0.04);
+      background: #151b28;
+      border-radius: 28px;
+      transition: 0.25s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+      padding: 24px 20px;
+      height: 100%;
+      color: #e8edf5;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 24px 48px -12px rgba(0,0,0,0.8);
+      border-color: rgba(122, 169, 255, 0.15);
+    }
+    .card h5, .card h6 {
+      color: #f0f4ff;
+    }
+    .card .text-secondary {
+      color: #b0bedb !important;
+    }
+    .skill-tag {
+      background: #1f2740;
+      color: #b0ccff;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin: 4px 4px;
+      border: 1px solid rgba(122, 169, 255, 0.08);
+    }
+    .project-img-placeholder {
+      background: #1b2235;
+      border-radius: 20px;
+      padding: 28px 10px;
+      text-align: center;
+      color: #b0bedb;
+      margin-bottom: 16px;
+      border: 1px solid #2a314a;
+    }
+    .project-img-placeholder i {
+      font-size: 2.8rem;
+      color: #7aa9ff;
+      opacity: 0.8;
+    }
+    .badge-tech {
+      background: #1f2740;
+      color: #c8d6f5;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      letter-spacing: 0.3px;
+      border: 1px solid #2a314a;
+    }
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #1f2740;
+      color: #b0ccff;
+      transition: 0.2s;
+      font-size: 1.3rem;
+      text-decoration: none;
+      margin: 0 6px;
+      border: 1px solid #2a314a;
+    }
+    .social-icon:hover {
+      background: #7aa9ff;
+      color: #0e0e18;
+      transform: scale(1.02);
+      border-color: #7aa9ff;
+    }
+    .bg-light {
+      background: #111824 !important;
+    }
+    .bg-primary {
+      background: #1a2238 !important;
+    }
+    .bg-opacity-25 {
+      --bs-bg-opacity: 0.5;
+    }
+    .bg-opacity-10 {
+      --bs-bg-opacity: 0.2;
+    }
+    .bg-primary.bg-opacity-10 {
+      background: rgba(122, 169, 255, 0.08) !important;
+    }
+    .badge.bg-primary {
+      background: #1f2b4a !important;
+      color: #b0ccff !important;
+    }
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.03);
+      background: #0e0e18;
+    }
+    .experience-item {
+      border-left: 3px solid #7aa9ff;
+      padding-left: 20px;
+      margin-bottom: 28px;
+    }
+    .experience-item h6 {
+      font-weight: 700;
+      color: #f0f4ff;
+    }
+    .experience-item .company {
+      color: #7aa9ff;
+      font-weight: 600;
+    }
+    .experience-item p {
+      color: #b0bedb;
+    }
+    .text-primary {
+      color: #7aa9ff !important;
+    }
+    .text-primary-opacity {
+      color: #b0ccff;
+    }
+    .btn-primary {
+      background: #7aa9ff;
+      border: none;
+      color: #0e0e18;
+    }
+    .btn-primary:hover {
+      background: #9bbdff;
+      color: #0e0e18;
+    }
+    .btn-outline-primary {
+      color: #7aa9ff;
+      border-color: #7aa9ff;
+    }
+    .btn-outline-primary:hover {
+      background: #7aa9ff;
+      color: #0e0e18;
+    }
+    .bg-opacity-5 {
+      --bs-bg-opacity: 0.08;
+    }
+    .bg-primary.bg-opacity-5 {
+      background: rgba(122, 169, 255, 0.04) !important;
+    }
+    .text-secondary.small {
+      color: #8896b5 !important;
+    }
+    .text-secondary a {
+      color: #7aa9ff !important;
+    }
+    /* responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .hero-avatar {
+        width: 140px;
+        height: 140px;
+        margin: 0 auto 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top py-3">
+    <div class="container">
+      <a class="navbar-brand fs-3" href="#"><i class="bi bi-code-square me-2"></i>AF</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#work">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+<a class="btn btn-outline-primary btn-sm rounded-pill px-4" href="docs/Alif_resume.pdf" target="_blank">Resume</a>          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-4 py-2 mb-3 fw-semibold" style="color:#b0ccff !important;">
+            <i class="bi bi-cpu me-1"></i> software engineer
+          </span>
+          <h1 class="display-4 fw-bold">Hi, I’m <span class="highlight">Alif Firdaus Azhar</span><br>Software Engineering & Web Programming</h1>
+          <p class="lead fs-5 mt-3" style="color:#b0bedb;">Crafting scalable systems with clean code, modern frameworks, and a passion for developer experience.</p>
+          <div class="btn-group mt-4 flex-wrap gap-2">
+            <a href="#work" class="btn btn-primary rounded-pill"><i class="bi bi-grid-3x3-gap-fill me-1"></i> Projects</a>
+            <a href="#contact" class="btn btn-outline-secondary rounded-pill"><i class="bi bi-envelope-paper me-1"></i> Let’s talk</a>
+          </div>
+          <!-- social -->
+          <div class="mt-4 d-flex">
+            <a href="https://github.com/AlifF217" class="social-icon"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/alif-firdaus-bin-azhar-5aa16423a/" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.youtube.com/@aliffirdausbinazhar2928" class="social-icon"><i class="bi bi-youtube"></i></a>
+<a href="mailto:aliffirdausazhar217@gmail.com" class="social-icon"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-5 text-center">
+   <div class="hero-avatar mx-auto" style="overflow: hidden; padding: 0;">
+  <img src="resource/img1_whitebg.jpg" alt="Alif Firdaus" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+</div>
+          <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap">
+            <!--<span class="badge-tech"><i class="bi bi-gear me-1"></i> 6+ years</span>
+            <span class="badge-tech"><i class="bi bi-check-circle me-1"></i> 20+ shipped</span>
+            <span class="badge-tech"><i class="bi bi-cloud me-1"></i> AWS certified</span>--->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK / PROJECTS -->
+  <section id="work" class="py-5" style="background:#0e0e18;">
+    <div class="container py-4">
+      <div class="row mb-4">
+        <div class="col-12">
+          <h2 class="section-title fs-1">Featured projects</h2>
+          <!--<p class="text-secondary mt-3">Real-world solutions built with React, Node, Go, and cloud-native tools.</p>-->
+        </div>
+      </div>
+      <div class="row g-4">
+<!-- project 1 -->
+<div class="col-md-6 col-lg-4">
+  <div class="card">
+    <div class="project-img-placeholder">
+      <i class="bi bi-phone"></i> 
+      <i class="bi bi-android2 ms-2"></i>
+      <span class="ms-2 fw-semibold">Mobile App Development</span>
+    </div>
+    <h5 class="fw-bold">Kana - Japanese Learning App</h5>
+    <p class="text-secondary small">Built with a team of 5 for UKM students using Android Studio & Agile Methodology. Features gamified quizzes and interactive vocabulary drills for enhanced learning.</p>
+    <div>
+      <span class="badge-tech">Android Studio</span>
+      <span class="badge-tech">Java</span>
+      <span class="badge-tech">Agile</span>
+      <span class="badge-tech">Firebase</span>
+    </div>
+    <div class="mt-3 d-flex flex-wrap gap-2">
+
+      <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-1">
+        <i class="bi bi-people me-1"></i> Team of 5
+      </span>
+    </div>
+    <div class="mt-2">
+      <a href="#" class="text-decoration-none fw-semibold text-primary">Case study <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
+       <!-- project 2 - iPelawat Visitor Management System -->
+<div class="col-md-6 col-lg-4">
+  <div class="card">
+    <div class="project-img-placeholder">
+      <i class="bi bi-building"></i> 
+      <i class="bi bi-qr-code ms-2"></i>
+      <span class="ms-2 fw-semibold">Web Application</span>
+    </div>
+    <h5 class="fw-bold">iPelawat Visitor Management System</h5>
+    <p class="text-secondary small">A web-based system for Selangor State Secretariat Office, transitioning manual processes into a centralized platform with QR code, WhatsApp integration, and real-time monitoring.</p>
+    <div>
+      <span class="badge-tech">CodeIgniter 4</span>
+      <span class="badge-tech">MySQL</span>
+      <span class="badge-tech">PHP</span>
+      <span class="badge-tech">Bootstrap</span>
+    </div>
+    <div class="mt-2 d-flex flex-wrap gap-2">
+      <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-1">
+        <i class="bi bi-qr-code me-1"></i> QR Code
+      </span>
+      <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-1">
+        <i class="bi bi-whatsapp me-1"></i> WhatsApp
+      </span>
+      <span class="badge bg-info bg-opacity-10 text-info rounded-pill px-3 py-1">
+        <i class="bi bi-graph-up me-1"></i> Real-time
+      </span>
+    </div>
+    <div class="mt-3">
+      <a href="#" class="text-decoration-none fw-semibold text-primary">Case study <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</div>
+       <!-- //project 3
+        <div class="col-md-6 col-lg-4">
+          <div class="card">
+            <div class="project-img-placeholder">
+              <i class="bi bi-boxes"></i> <span class="ms-2 fw-semibold">Microservices</span>
+            </div>
+            <h5 class="fw-bold">Orchestra</h5>
+            <p class="text-secondary small">Kubernetes-native service mesh with observability, circuit breakers, and gRPC.</p>
+            <div>
+              <span class="badge-tech">K8s</span>
+              <span class="badge-tech">gRPC</span>
+              <span class="badge-tech">Istio</span>
+            </div>
+            <div class="mt-3">
+              <a href="#" class="text-decoration-none fw-semibold text-primary">Source <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+-->
+  <!-- SKILLS -->
+
+ <section id="skills" class="py-5" style="background:#131a28;">
+  <div class="container py-4">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h2 class="section-title fs-1">Technical Skills</h2>
+        <p class="text-secondary mt-3">A comprehensive toolkit spanning programming, design, and project management.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      
+      <!-- Programming Languages -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card text-center h-100">
+          <i class="bi bi-code-slash display-4 text-primary opacity-75"></i>
+          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Programming Languages</h6>
+          <div class="d-flex flex-wrap justify-content-center gap-1">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Web & Database -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card text-center h-100">
+          <i class="bi bi-database display-4 text-primary opacity-75"></i>
+          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Web & Database</h6>
+          <div class="d-flex flex-wrap justify-content-center gap-1">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CodeIgniter</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Design & Multimedia -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card text-center h-100">
+          <i class="bi bi-palette display-4 text-primary opacity-75"></i>
+          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Design & Multimedia</h6>
+          <div class="d-flex flex-wrap justify-content-center gap-1">
+            <span class="skill-tag">Autodesk 3DS Max</span>
+            <span class="skill-tag">Canva Pro</span>
+            <span class="skill-tag">Adobe Photoshop</span>
+            <span class="skill-tag">Adobe Premiere Pro</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Project Management -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card text-center h-100">
+          <i class="bi bi-diagram-3 display-4 text-primary opacity-75"></i>
+          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Project Management</h6>
+          <div class="d-flex flex-wrap justify-content-center gap-1">
+            <span class="skill-tag">Agile</span>
+            <span class="skill-tag">Scrum</span>
+            <span class="skill-tag">Waterfall</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Office Tools -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card text-center h-100">
+          <i class="bi bi-file-earmark-spreadsheet display-4 text-primary opacity-75"></i>
+          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Office & Productivity</h6>
+          <div class="d-flex flex-wrap justify-content-center gap-1">
+            <span class="skill-tag">Microsoft Excel</span>
+            <span class="skill-tag">Microsoft Office</span>
+            <span class="skill-tag">Google Workspace</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional Skills -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card text-center h-100">
+          <i class="bi bi-tools display-4 text-primary opacity-75"></i>
+          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Other Tools</h6>
+          <div class="d-flex flex-wrap justify-content-center gap-1">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Android Studio</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE - Single Card Per Role -->
+<section id="experience" class="py-5" style="background:#0e0e18;">
+  <div class="container py-4">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h2 class="section-title fs-1">Experience</h2>
+        <p class="text-secondary mt-3">Professional experience in web development and IT infrastructure.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      
+      <!-- IT Intern - Selangor State Secretariat -->
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-start mb-3">
+              <div class="me-3">
+                <i class="bi bi-building text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-0" style="color:#f0f4ff;">IT Intern (Web Developer)</h5>
+                <h6 class="company mb-1">Pejabat Setiausaha Kerajaan Selangor</h6>
+                <div class="text-secondary small"><i class="bi bi-calendar3 me-1"></i>Sept 2025 – Jan 2026</div>
+              </div>
+            </div>
+            <ul class="mb-0 ps-3" style="color: #b0bedb;">
+              <li class="mb-2">Developed secure Visitor Management System using PHP (CodeIgniter 4), MySQL (HeidiSQL), and Laragon with user authentication, RBAC for 3 user roles, CAPTCHA, QR code registration, and automated time-out handling.</li>
+              <li class="mb-2">Designed MySQL database schemas supporting 700+ users across 20 divisions with phone number fields, user roles, division-based categorization, searchable dropdowns, and sorting functionality.</li>
+              <li>Authored comprehensive technical documentation including UAT scripts, deployment guides, Apache/PHP configuration, and user manuals.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Computer Science Intern - SIRIM Berhad -->
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-start mb-3">
+              <div class="me-3">
+                <i class="bi bi-server text-primary fs-2"></i>
+              </div>
+              <div>
+                <h5 class="fw-bold mb-0" style="color:#f0f4ff;">Computer Science Intern</h5>
+                <h6 class="company mb-1">SIRIM Berhad</h6>
+                <div class="text-secondary small"><i class="bi bi-calendar3 me-1"></i>Dec 2022 – Feb 2023</div>
+              </div>
+            </div>
+            <ul class="mb-0 ps-3" style="color: #b0bedb;">
+              <li class="mb-2">Configured, maintained, and troubleshot enterprise LAN/WAN infrastructure, ensuring stable connectivity for day-to-day IT operations.</li>
+              <li>Monitored network performance and diagnosed connectivity issues, maintaining minimal downtime across 10-15 systems.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+  <!-- CONTACT / CALL TO ACTION -->
+  <section id="contact" class="py-5" style="background:#131a28;">
+    <div class="container py-5">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-7">
+          <h2 class="section-title fs-1">Let’s build something</h2>
+          <p class="lead text-secondary mt-3">I’m open to freelance, full‑time roles, or just a tech chat. Reach out anytime.</p>
+          <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <a href="mailto:aliffirdausazhar217@gmail.com" class="btn btn-primary rounded-pill px-5 py-3 fw-semibold"><i class="bi bi-envelope-paper me-2"></i>Contact me through email</a>
+          </div>
+          <div class="mt-5 d-flex justify-content-center gap-3">
+            <a href="https://github.com/AlifF217" class="social-icon"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/alif-firdaus-bin-azhar-5aa16423a/" class="social-icon"><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.youtube.com/@aliffirdausbinazhar2928" class="social-icon"><i class="bi bi-youtube"></i></a>
+            <a href="mailto:aliffirdausazhar217@gmail.com" class="social-icon"><i class="bi bi-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <span class="text-secondary small">© 2026 Alif Firdaus Azhar — built with <i class="bi bi-bootstrap-fill" style="color:#7aa9ff;"></i> Bootstrap</span>
+        </div>
+        <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+          <a href="#" class="text-decoration-none text-secondary small me-3" style="color:#8896b5 !important;">Privacy</a>
+          <a href="#" class="text-decoration-none text-secondary small" style="color:#8896b5 !important;">Imprint</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
