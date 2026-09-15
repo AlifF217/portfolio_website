@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CV - Alif Firdaus Azhar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/portfolio.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        /* Additional styles for CV page */
+        .cv-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: calc(100vh - 200px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cv-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .cv-header .section-label {
+            font-family: var(--font-mono);
+            color: var(--wolf-accent);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--wolf-white);
+            font-weight: 400;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-header p {
+            color: var(--wolf-silver);
+            font-size: 1.1rem;
+            font-family: var(--font-body);
+        }
+
+        .cv-viewer {
+            width: 100%;
+            max-width: 1000px;
+            background: rgba(10, 15, 26, 0.8);
+            border: 1px solid rgba(74, 255, 122, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .cv-viewer iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cv-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cv-actions .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.8rem 2rem;
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            z-index: 10;
+            pointer-events: auto;
+            border: none;
+            background: var(--wolf-accent);
+            color: var(--wolf-dark);
+            box-shadow: 0 0 24px rgba(74, 255, 122, 0.25);
+        }
+
+        .cv-actions .btn i {
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+        .btn-download {
+            background: var(--wolf-accent);
+            color: var(--wolf-dark);
+            border: none;
+            box-shadow: 0 0 24px rgba(74, 255, 122, 0.25);
+        }
+
+        .btn-download:hover {
+            background: #66ff88;
+            box-shadow: 0 0 40px rgba(74, 255, 122, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-cv {
+            background: transparent;
+            color: var(--wolf-accent);
+            border: 1px solid rgba(74, 255, 122, 0.4);
+            box-shadow: none;
+        }
+
+        .btn-outline-cv:hover {
+            background: rgba(74, 255, 122, 0.1);
+            border-color: var(--wolf-accent);
+            transform: translateY(-2px);
+        }
+
+        /* Fallback message for when PDF can't load */
+        .cv-fallback {
+            display: none;
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--wolf-mist);
+        }
+
+        .cv-fallback i {
+            font-size: 4rem;
+            color: var(--wolf-accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .cv-fallback h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--wolf-white);
+            margin-bottom: 1rem;
+        }
+
+        .cv-fallback .btn {
+            margin-top: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cv-viewer iframe {
+                height: 500px;
+            }
+
+            .cv-container {
+                padding: 1rem;
+            }
+
+            .cv-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cv-viewer iframe {
+                height: 400px;
+            }
+
+            .cv-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAV -->
+    <nav class="topnav">
+        <div class="nav-logo">
+            <div class="nav-brand">
+                Alif Firdaus Azhar
+                <span>Software Engineer</span>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html#hero">Main Page</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#portfolio">Portfolio</a>
+            <a href="cv.html">CV</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+
+        <div class="nav-clock" id="clock">10:29:30 AM</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div><div></div><div></div>
+        </div>
+
+        <div class="side-menu" id="sideMenu">
+            <a href="index.html#hero">Home</a>
+            <a href="index.html#portfolio">Projects</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+    <!--NAV END-->
+
+    <!-- CV SECTION -->
+    <section class="hero" style="min-height: auto; padding: 40px 2rem 4rem; position: relative; z-index: 1;">
+        <div class="hero-grid" style="z-index: 0;"></div>
+        <div class="hero-glow" style="z-index: 0;"></div>
+
+        <div class="cv-container">
+            <div class="cv-header">
+                <p class="section-label">// CURRICULUM VITAE</p>
+                <h1>Resume &amp; <span style="color: var(--wolf-accent);">CV</span></h1>
+                <p>View or download my professional resume below.</p>
+            </div>
+
+            <!-- PDF Viewer -->
+            <div class="cv-viewer" id="cvViewer">
+                <iframe src="files/Alif_Firdaus_Azhar_CV.pdf#toolbar=1&navpanes=1&scrollbar=1" 
+                        id="pdfFrame"
+                        title="Curriculum Vitae - Alif Firdaus Azhar">
+                    Your browser does not support PDF viewing. Please download the PDF using the button below.
+                </iframe>
+            </div>
+
+            <!-- Fallback message (shown if PDF fails to load) -->
+            <div class="cv-fallback" id="cvFallback">
+                <i class="bi bi-file-earmark-pdf"></i>
+                <h3>PDF Preview Unavailable</h3>
+                <p>Your browser may not support embedded PDF viewing. You can download the file directly.</p>
+                <a href="#" id="fallbackDownloadBtn" class="btn btn-primary" style="display: inline-block;">
+                    <i class="bi bi-download"></i> Download CV
+                </a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="cv-actions">
+                <a href="#" onclick="downloadCV(); return false;" class="btn btn-download">
+                    <i class="bi bi-download"></i> Download PDF
+                </a>
+                <a href="#" onclick="openInNewTab(); return false;" class="btn btn-outline-cv">
+                    <i class="bi bi-box-arrow-up-right"></i> Open in New Tab
+                </a>
+                <a href="index.html#hero" class="btn btn-outline-cv">
+                    <i class="bi bi-arrow-left"></i> Back to Main Page
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- CV SECTION ENDS -->
+
+    <div class="section-divider"></div>
+
+    <!-- FOOTER -->
+    <footer>
+        <span>ALIF FIRDAUS AZHAR</span> · CV TERMINAL · © 2026
+    </footer>
+    <!--FOOTER ENDS-->
+
+    <!-- SCRIPTS -->
+    <script>
+        // ============================================================
+        // CV BUTTON FUNCTIONS
+        // ============================================================
+        
+        // Define the PDF path
+        const pdfPath = 'files/Alif_Firdaus_Azhar_CV.pdf';
+        
+        // Download PDF function
+        function downloadCV() {
+            // Create a temporary link element
+            const link = document.createElement('a');
+            link.href = pdfPath;
+            link.download = 'Alif_Firdaus_Azhar_CV.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            return false;
+        }
+        
+        // Open in new tab function
+        function openInNewTab() {
+            window.open(pdfPath, '_blank');
+            return false;
+        }
+
+        // ============================================================
+        // HAMBURGER MENU TOGGLE FUNCTION
+        // ============================================================
+        function toggleMenu() {
+            const sideMenu = document.getElementById('sideMenu');
+            if (sideMenu) {
+                sideMenu.classList.toggle('open');
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            const sideMenu = document.getElementById('sideMenu');
+            const hamburger = document.querySelector('.hamburger');
+            if (sideMenu && sideMenu.classList.contains('open')) {
+                if (!sideMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                    sideMenu.classList.remove('open');
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const sideMenuLinks = document.querySelectorAll('.side-menu a');
+            sideMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const sideMenu = document.getElementById('sideMenu');
+                    if (sideMenu) {
+                        sideMenu.classList.remove('open');
+                    }
+                });
+            });
+
+            // Set fallback download button
+            const fallbackBtn = document.getElementById('fallbackDownloadBtn');
+            if (fallbackBtn) {
+                fallbackBtn.href = pdfPath;
+                fallbackBtn.download = 'Alif_Firdaus_Azhar_CV.pdf';
+            }
+
+            // Check if PDF loads, show fallback if not
+            const pdfFrame = document.getElementById('pdfFrame');
+            if (pdfFrame) {
+                // Try to detect if PDF loaded successfully
+                pdfFrame.addEventListener('error', function() {
+                    document.getElementById('cvFallback').style.display = 'block';
+                    document.getElementById('cvViewer').style.display = 'none';
+                });
+
+                // If PDF doesn't load within 5 seconds, show fallback
+                setTimeout(function() {
+                    if (document.getElementById('cvFallback').style.display !== 'block') {
+                        try {
+                            const iframeDoc = pdfFrame.contentDocument || pdfFrame.contentWindow?.document;
+                            if (iframeDoc && iframeDoc.body && iframeDoc.body.innerHTML.trim() === '') {
+                                document.getElementById('cvFallback').style.display = 'block';
+                                document.getElementById('cvViewer').style.display = 'none';
+                            }
+                        } catch (e) {
+                            // Cross-origin access denied - assume it loaded
+                        }
+                    }
+                }, 5000);
+            }
+        });
+    </script>
+
+    <script>
+        // ============================================================
+        // CLOCK FUNCTION
+        // ============================================================
+        function updateClock() {
+            const clockElement = document.getElementById('clock');
+            if (!clockElement) return;
+            
+            const now = new Date();
+            const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+            
+            let hours = now.getHours();
+            let minutes = String(now.getMinutes()).padStart(2, '0');
+            let seconds = String(now.getSeconds()).padStart(2, '0');
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+            
+            hours = hours % 12 || 12;
+            hours = String(hours).padStart(2, '0');
+            
+            const day = days[now.getDay()];
+            const date = String(now.getDate()).padStart(2, '0');
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            
+            const timeString = `${day} ${month} ${date} ${year}  ${hours}:${minutes}:${seconds} ${ampm}`;
+            clockElement.textContent = timeString;
+        }
+        
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
+    <!-- Smooth scrolling script for cross-page navigation -->
+    <script>
+        // ============================================================
+        // CROSS-PAGE SMOOTH SCROLLING
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if there's a hash in the URL when page loads
+            if (window.location.hash) {
+                // Wait a moment for the page to load, then scroll to the element
+                setTimeout(function() {
+                    const targetId = window.location.hash.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 500);
+            }
+        });
+
+        // Handle navigation links that go to index.html with hash
+        document.querySelectorAll('a[href^="index.html#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                const targetId = href.split('#')[1];
+                
+                // Navigate to index.html with the hash
+                window.location.href = 'index.html#' + targetId;
+            });
+        });
+    </script>
+</body>
+</html>

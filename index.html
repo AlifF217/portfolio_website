@@ -1,653 +1,1457 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alif Firdaus Azhar · Software Engineer</title>
-  <!-- Bootstrap 5 + Icons + Google Font -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <style>
-    /* ----- DARK THEME OVERRIDES ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #0e0e18;
-      color: #e8edf5;
-      scroll-behavior: smooth;
-    }
-    /* navbar — dark glass */
-    .navbar {
-      background: rgba(14, 14, 24, 0.85);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    }
-    .navbar-brand {
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      color: #7aa9ff !important;
-    }
-    .nav-link {
-      font-weight: 500;
-      color: #ccd6f0 !important;
-      transition: 0.2s;
-      margin: 0 6px;
-    }
-    .nav-link:hover {
-      color: #7aa9ff !important;
-    }
-    .btn-outline-primary {
-      border-width: 2px;
-      font-weight: 600;
-      color: #7aa9ff;
-      border-color: #7aa9ff;
-    }
-    .btn-outline-primary:hover {
-      background: #7aa9ff;
-      color: #0e0e18;
-      border-color: #7aa9ff;
-    }
-    /* hero */
-    .hero {
-      padding: 80px 0 70px;
-      background: linear-gradient(145deg, #0e0e18 0%, #181826 100%);
-      border-bottom: 1px solid rgba(255,255,255,0.03);
-    }
-    .hero h1 {
-      font-weight: 700;
-      font-size: 3.2rem;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      color: #f0f4ff;
-    }
-    .hero .highlight {
-      background: linear-gradient(135deg, #7aa9ff, #b28aff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero .lead {
-      color: #b0bedb;
-      max-width: 540px;
-      font-weight: 400;
-    }
-    .hero .btn-group .btn {
-      border-radius: 40px;
-      padding: 12px 32px;
-      font-weight: 600;
-    }
-    .btn-primary {
-      background: #7aa9ff;
-      border: none;
-      color: #0e0e18;
-      font-weight: 600;
-    }
-    .btn-primary:hover {
-      background: #9bbdff;
-      color: #0e0e18;
-    }
-    .btn-outline-secondary {
-      color: #b0bedb;
-      border-color: #3a4055;
-    }
-    .btn-outline-secondary:hover {
-      background: #2a2f42;
-      color: #f0f4ff;
-      border-color: #5a6480;
-    }
-    .hero-avatar {
-      width: 180px;
-      height: 180px;
-      background: linear-gradient(145deg, #1f2438, #131724);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 20px 40px -8px rgba(0,0,0,0.8);
-      border: 4px solid #2a2f42;
-    }
-    .hero-avatar i {
-      font-size: 5.5rem;
-      color: #7aa9ff;
-    }
-    /* section titles */
-    .section-title {
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      position: relative;
-      display: inline-block;
-      color: #f0f4ff;
-    }
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 50px;
-      height: 4px;
-      background: linear-gradient(90deg, #7aa9ff, #b28aff);
-      border-radius: 10px;
-    }
-    .text-secondary {
-      color: #a8b6d4 !important;
-    }
-    /* cards – dark */
-    .card {
-      border: 1px solid rgba(255,255,255,0.04);
-      background: #151b28;
-      border-radius: 28px;
-      transition: 0.25s ease;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-      padding: 24px 20px;
-      height: 100%;
-      color: #e8edf5;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 24px 48px -12px rgba(0,0,0,0.8);
-      border-color: rgba(122, 169, 255, 0.15);
-    }
-    .card h5, .card h6 {
-      color: #f0f4ff;
-    }
-    .card .text-secondary {
-      color: #b0bedb !important;
-    }
-    .skill-tag {
-      background: #1f2740;
-      color: #b0ccff;
-      padding: 8px 16px;
-      border-radius: 40px;
-      font-weight: 500;
-      font-size: 0.9rem;
-      display: inline-block;
-      margin: 4px 4px;
-      border: 1px solid rgba(122, 169, 255, 0.08);
-    }
-    .project-img-placeholder {
-      background: #1b2235;
-      border-radius: 20px;
-      padding: 28px 10px;
-      text-align: center;
-      color: #b0bedb;
-      margin-bottom: 16px;
-      border: 1px solid #2a314a;
-    }
-    .project-img-placeholder i {
-      font-size: 2.8rem;
-      color: #7aa9ff;
-      opacity: 0.8;
-    }
-    .badge-tech {
-      background: #1f2740;
-      color: #c8d6f5;
-      font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      letter-spacing: 0.3px;
-      border: 1px solid #2a314a;
-    }
-    .social-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #1f2740;
-      color: #b0ccff;
-      transition: 0.2s;
-      font-size: 1.3rem;
-      text-decoration: none;
-      margin: 0 6px;
-      border: 1px solid #2a314a;
-    }
-    .social-icon:hover {
-      background: #7aa9ff;
-      color: #0e0e18;
-      transform: scale(1.02);
-      border-color: #7aa9ff;
-    }
-    .bg-light {
-      background: #111824 !important;
-    }
-    .bg-primary {
-      background: #1a2238 !important;
-    }
-    .bg-opacity-25 {
-      --bs-bg-opacity: 0.5;
-    }
-    .bg-opacity-10 {
-      --bs-bg-opacity: 0.2;
-    }
-    .bg-primary.bg-opacity-10 {
-      background: rgba(122, 169, 255, 0.08) !important;
-    }
-    .badge.bg-primary {
-      background: #1f2b4a !important;
-      color: #b0ccff !important;
-    }
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.03);
-      background: #0e0e18;
-    }
-    .experience-item {
-      border-left: 3px solid #7aa9ff;
-      padding-left: 20px;
-      margin-bottom: 28px;
-    }
-    .experience-item h6 {
-      font-weight: 700;
-      color: #f0f4ff;
-    }
-    .experience-item .company {
-      color: #7aa9ff;
-      font-weight: 600;
-    }
-    .experience-item p {
-      color: #b0bedb;
-    }
-    .text-primary {
-      color: #7aa9ff !important;
-    }
-    .text-primary-opacity {
-      color: #b0ccff;
-    }
-    .btn-primary {
-      background: #7aa9ff;
-      border: none;
-      color: #0e0e18;
-    }
-    .btn-primary:hover {
-      background: #9bbdff;
-      color: #0e0e18;
-    }
-    .btn-outline-primary {
-      color: #7aa9ff;
-      border-color: #7aa9ff;
-    }
-    .btn-outline-primary:hover {
-      background: #7aa9ff;
-      color: #0e0e18;
-    }
-    .bg-opacity-5 {
-      --bs-bg-opacity: 0.08;
-    }
-    .bg-primary.bg-opacity-5 {
-      background: rgba(122, 169, 255, 0.04) !important;
-    }
-    .text-secondary.small {
-      color: #8896b5 !important;
-    }
-    .text-secondary a {
-      color: #7aa9ff !important;
-    }
-    /* responsive */
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.4rem;
-      }
-      .hero-avatar {
-        width: 140px;
-        height: 140px;
-        margin: 0 auto 20px;
-      }
-    }
-  </style>
+    <title>Alif Firdaus Azhar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/portfolio.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg sticky-top py-3">
-    <div class="container">
-      <a class="navbar-brand fs-3" href="#"><i class="bi bi-code-square me-2"></i>AF</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="#work">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          <li class="nav-item ms-lg-2">
-<a class="btn btn-outline-primary btn-sm rounded-pill px-4" href="docs/Alif_resume.pdf" target="_blank">Resume</a>          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-7">
-          <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-4 py-2 mb-3 fw-semibold" style="color:#b0ccff !important;">
-            <i class="bi bi-cpu me-1"></i> software engineer
-          </span>
-          <h1 class="display-4 fw-bold">Hi, I’m <span class="highlight">Alif Firdaus Azhar</span><br>Software Engineering & Web Programming</h1>
-          <p class="lead fs-5 mt-3" style="color:#b0bedb;">Crafting scalable systems with clean code, modern frameworks, and a passion for developer experience.</p>
-          <div class="btn-group mt-4 flex-wrap gap-2">
-            <a href="#work" class="btn btn-primary rounded-pill"><i class="bi bi-grid-3x3-gap-fill me-1"></i> Projects</a>
-            <a href="#contact" class="btn btn-outline-secondary rounded-pill"><i class="bi bi-envelope-paper me-1"></i> Let’s talk</a>
-          </div>
-          <!-- social -->
-          <div class="mt-4 d-flex">
-            <a href="https://github.com/AlifF217" class="social-icon"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/alif-firdaus-bin-azhar-5aa16423a/" class="social-icon"><i class="bi bi-linkedin"></i></a>
-            <a href="https://www.youtube.com/@aliffirdausbinazhar2928" class="social-icon"><i class="bi bi-youtube"></i></a>
-<a href="mailto:aliffirdausazhar217@gmail.com" class="social-icon"><i class="bi bi-envelope"></i></a>
-          </div>
-        </div>
-        <div class="col-lg-5 text-center">
-   <div class="hero-avatar mx-auto" style="overflow: hidden; padding: 0;">
-  <img src="resource/img1_whitebg.jpg" alt="Alif Firdaus" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-</div>
-          <div class="mt-3 d-flex justify-content-center gap-3 flex-wrap">
-            <!--<span class="badge-tech"><i class="bi bi-gear me-1"></i> 6+ years</span>
-            <span class="badge-tech"><i class="bi bi-check-circle me-1"></i> 20+ shipped</span>
-            <span class="badge-tech"><i class="bi bi-cloud me-1"></i> AWS certified</span>--->
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WORK / PROJECTS -->
-  <section id="work" class="py-5" style="background:#0e0e18;">
-    <div class="container py-4">
-      <div class="row mb-4">
-        <div class="col-12">
-          <h2 class="section-title fs-1">Featured projects</h2>
-          <!--<p class="text-secondary mt-3">Real-world solutions built with React, Node, Go, and cloud-native tools.</p>-->
-        </div>
-      </div>
-      <div class="row g-4">
-<!-- project 1 -->
-<div class="col-md-6 col-lg-4">
-  <div class="card">
-    <div class="project-img-placeholder">
-      <i class="bi bi-phone"></i> 
-      <i class="bi bi-android2 ms-2"></i>
-      <span class="ms-2 fw-semibold">Mobile App Development</span>
-    </div>
-    <h5 class="fw-bold">Kana - Japanese Learning App</h5>
-    <p class="text-secondary small">Built with a team of 5 for UKM students using Android Studio & Agile Methodology. Features gamified quizzes and interactive vocabulary drills for enhanced learning.</p>
-    <div>
-      <span class="badge-tech">Android Studio</span>
-      <span class="badge-tech">Java</span>
-      <span class="badge-tech">Agile</span>
-      <span class="badge-tech">Firebase</span>
-    </div>
-    <div class="mt-3 d-flex flex-wrap gap-2">
-
-      <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-1">
-        <i class="bi bi-people me-1"></i> Team of 5
-      </span>
-    </div>
-    <div class="mt-2">
-      <a href="https://github.com/AlifF217/kana/tree/master" class="text-decoration-none fw-semibold text-primary">Github Repository<i class="bi bi-arrow-right"></i></a>
-    </div>
-  </div>
-</div>
-       <!-- project 2 - iPelawat Visitor Management System -->
-<div class="col-md-6 col-lg-4">
-  <div class="card">
-    <div class="project-img-placeholder">
-      <i class="bi bi-building"></i> 
-      <i class="bi bi-qr-code ms-2"></i>
-      <span class="ms-2 fw-semibold">Web Application</span>
-    </div>
-    <h5 class="fw-bold">iPelawat Visitor Management System</h5>
-    <p class="text-secondary small">A web-based system for Selangor State Secretariat Office, transitioning manual processes into a centralized platform with QR code, WhatsApp integration, and real-time monitoring.</p>
-    <div>
-      <span class="badge-tech">CodeIgniter 4</span>
-      <span class="badge-tech">MySQL</span>
-      <span class="badge-tech">PHP</span>
-      <span class="badge-tech">Bootstrap</span>
-    </div>
-    <div class="mt-2 d-flex flex-wrap gap-2">
-      <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-1">
-        <i class="bi bi-qr-code me-1"></i> QR Code
-      </span>
-      <span class="badge bg-success bg-opacity-10 text-success rounded-pill px-3 py-1">
-        <i class="bi bi-whatsapp me-1"></i> WhatsApp
-      </span>
-      <span class="badge bg-info bg-opacity-10 text-info rounded-pill px-3 py-1">
-        <i class="bi bi-graph-up me-1"></i> Real-time
-      </span>
-    </div>
-    <div class="mt-3">
-      <a href="https://github.com/AlifF217/ipelawat" class="text-decoration-none fw-semibold text-primary">Github Repository <i class="bi bi-arrow-right"></i></a>
-    </div>
-  </div>
-</div>
-       <!-- //project 3
-        <div class="col-md-6 col-lg-4">
-          <div class="card">
-            <div class="project-img-placeholder">
-              <i class="bi bi-boxes"></i> <span class="ms-2 fw-semibold">Microservices</span>
+    <!-- NAV -->
+    <nav class="topnav">
+        <div class="nav-logo">
+            <div class="nav-brand">
+                Alif Firdaus Azhar
+                <span>Software Engineer</span>
             </div>
-            <h5 class="fw-bold">Orchestra</h5>
-            <p class="text-secondary small">Kubernetes-native service mesh with observability, circuit breakers, and gRPC.</p>
-            <div>
-              <span class="badge-tech">K8s</span>
-              <span class="badge-tech">gRPC</span>
-              <span class="badge-tech">Istio</span>
-            </div>
-            <div class="mt-3">
-              <a href="#" class="text-decoration-none fw-semibold text-primary">Source <i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
--->
-  <!-- SKILLS -->
 
- <section id="skills" class="py-5" style="background:#131a28;">
-  <div class="container py-4">
-    <div class="row mb-4">
-      <div class="col-12">
-        <h2 class="section-title fs-1">Technical Skills</h2>
-        <p class="text-secondary mt-3">A comprehensive toolkit spanning programming, design, and project management.</p>
-      </div>
-    </div>
-    <div class="row g-4">
-      
-      <!-- Programming Languages -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card text-center h-100">
-          <i class="bi bi-code-slash display-4 text-primary opacity-75"></i>
-          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Programming Languages</h6>
-          <div class="d-flex flex-wrap justify-content-center gap-1">
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">C++</span>
-            <span class="skill-tag">PHP</span>
-            <span class="skill-tag">C#</span>
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">MySQL</span>
-          </div>
+        <div class="nav-links">
+            <a href="#hero">Main Page</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="cv.html">CV</a>
+            <a href="#contact">Contact</a>
         </div>
-      </div>
-      
-      <!-- Web & Database -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card text-center h-100">
-          <i class="bi bi-database display-4 text-primary opacity-75"></i>
-          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Web & Database</h6>
-          <div class="d-flex flex-wrap justify-content-center gap-1">
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">PHP</span>
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CodeIgniter</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Design & Multimedia -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card text-center h-100">
-          <i class="bi bi-palette display-4 text-primary opacity-75"></i>
-          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Design & Multimedia</h6>
-          <div class="d-flex flex-wrap justify-content-center gap-1">
-            <span class="skill-tag">Autodesk 3DS Max</span>
-            <span class="skill-tag">Canva Pro</span>
-            <span class="skill-tag">Adobe Photoshop</span>
-            <span class="skill-tag">Adobe Premiere Pro</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Project Management -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card text-center h-100">
-          <i class="bi bi-diagram-3 display-4 text-primary opacity-75"></i>
-          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Project Management</h6>
-          <div class="d-flex flex-wrap justify-content-center gap-1">
-            <span class="skill-tag">Agile</span>
-            <span class="skill-tag">Scrum</span>
-            <span class="skill-tag">Waterfall</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Office Tools -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card text-center h-100">
-          <i class="bi bi-file-earmark-spreadsheet display-4 text-primary opacity-75"></i>
-          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Office & Productivity</h6>
-          <div class="d-flex flex-wrap justify-content-center gap-1">
-            <span class="skill-tag">Microsoft Excel</span>
-            <span class="skill-tag">Microsoft Office</span>
-            <span class="skill-tag">Google Workspace</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Additional Skills -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card text-center h-100">
-          <i class="bi bi-tools display-4 text-primary opacity-75"></i>
-          <h6 class="fw-bold mt-2" style="color:#f0f4ff;">Other Tools</h6>
-          <div class="d-flex flex-wrap justify-content-center gap-1">
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Android Studio</span>
-            <span class="skill-tag">Firebase</span>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
 
-<!-- EXPERIENCE - Single Card Per Role -->
-<section id="experience" class="py-5" style="background:#0e0e18;">
-  <div class="container py-4">
-    <div class="row mb-4">
-      <div class="col-12">
-        <h2 class="section-title fs-1">Experience</h2>
-        <p class="text-secondary mt-3">Professional experience in web development and IT infrastructure.</p>
-      </div>
-    </div>
-    <div class="row g-4">
-      
-      <!-- IT Intern - Selangor State Secretariat -->
-      <div class="col-lg-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="d-flex align-items-start mb-3">
-              <div class="me-3">
-                <i class="bi bi-building text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-0" style="color:#f0f4ff;">IT Intern (Web Developer)</h5>
-                <h6 class="company mb-1">Pejabat Setiausaha Kerajaan Selangor</h6>
-                <div class="text-secondary small"><i class="bi bi-calendar3 me-1"></i>Sept 2025 – Jan 2026</div>
-              </div>
+        <div class="nav-clock" id="clock">10:29:30 AM</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div><div></div><div></div>
+        </div>
+
+        <div class="side-menu" id="sideMenu">
+            <a href="#hero">Home</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+    <!--NAV END-->
+
+    <!--HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+
+        <!-- Imperium of Man Logo SVG -->
+        <svg class="hero-wolf-bg" viewBox="0 0 600 253" xmlns="http://www.w3.org/2000/svg" 
+             preserveAspectRatio="xMidYMid meet">
+            <g transform="translate(0,253) scale(0.1,-0.1)" fill="#4aff7a" stroke="#4aff7a">
+                <path d="M1895 2343 c-88 -2 -526 -9 -972 -16 -447 -8 -816 -16 -819 -19 -3
+                -4 36 -57 88 -118 l93 -112 120 6 c131 7 583 29 1133 54 195 10 355 15 357 12
+                2 -3 0 -11 -4 -18 -7 -12 -49 -16 -866 -87 -220 -19 -460 -40 -532 -46 -73 -7
+                -133 -15 -133 -18 0 -4 46 -52 103 -109 l102 -102 645 120 c354 66 649 119
+                654 116 19 -7 -29 -21 -609 -181 -314 -87 -572 -160 -575 -162 -3 -2 5 -12 16
+                -21 12 -9 66 -56 121 -104 l99 -87 449 175 c247 96 459 177 472 180 75 19 -30
+                -45 -387 -237 -220 -118 -398 -217 -397 -221 1 -4 49 -47 107 -97 l105 -89 42
+                31 c23 18 157 124 299 237 303 241 291 232 297 223 5 -8 -49 -66 -371 -402
+                l-152 -159 52 -33 c79 -48 148 -89 153 -89 2 0 96 119 209 264 186 239 226
+                288 226 272 0 -2 -74 -133 -164 -290 -91 -157 -161 -286 -156 -286 11 0 155
+                -19 196 -25 l31 -5 51 117 c156 361 188 428 206 431 24 5 21 -8 -75 -295 -43
+                -130 -78 -238 -76 -239 1 -1 43 27 92 63 50 36 98 71 109 78 13 10 29 61 57
+                182 48 202 48 203 60 203 6 0 7 -26 5 -62 -18 -223 -18 -222 0 -207 10 8 44
+                44 76 82 l58 68 0 87 c1 78 2 85 15 68 8 -11 18 -34 21 -53 3 -18 9 -33 13
+                -33 12 0 81 116 81 136 0 23 18 44 37 44 32 0 5 -57 -103 -218 -63 -96 -114
+                -175 -112 -176 29 -22 181 -116 186 -116 5 0 53 116 107 258 54 141 105 272
+                112 290 l14 34 -74 75 -74 76 -139 -51 c-76 -28 -168 -56 -204 -62 -190 -35
+                -320 60 -320 233 0 121 97 263 223 325 45 23 47 25 47 68 l0 44 -132 -2 c-73
+                -1 -205 -4 -293 -5z"/>
+                <path d="M3700 2307 c0 -46 1 -47 48 -71 59 -30 152 -124 188 -190 19 -34 28
+                -69 32 -116 12 -166 -112 -275 -288 -255 -73 8 -148 31 -275 81 l-96 38 -76
+                -76 -76 -76 111 -287 c61 -158 114 -290 116 -293 7 -6 186 108 186 119 0 5
+                -44 76 -98 157 -119 177 -137 211 -124 224 16 16 42 1 42 -23 0 -27 80 -153
+                90 -142 4 4 12 27 19 51 19 67 31 50 31 -46 l0 -87 66 -75 c36 -41 69 -76 72
+                -78 4 -1 4 59 -1 135 -7 126 -5 154 8 141 3 -3 24 -87 47 -187 l42 -181 100
+                -73 c56 -41 106 -77 112 -80 7 -4 -11 62 -38 146 -128 390 -128 388 -105 385
+                16 -2 42 -54 133 -263 62 -143 116 -265 121 -272 6 -10 32 -9 117 2 60 8 111
+                17 113 19 2 2 -69 130 -158 285 -88 155 -159 284 -156 287 2 3 98 -115 211
+                -260 114 -146 211 -268 216 -271 13 -8 201 108 198 122 -2 6 -52 63 -113 125
+                -333 343 -405 420 -399 429 4 7 12 5 22 -4 10 -8 151 -121 315 -250 l299 -236
+                108 92 c96 82 106 93 92 105 -10 7 -188 105 -397 218 -209 112 -384 209 -389
+                214 -33 33 54 4 470 -158 l466 -181 118 102 c65 56 119 104 119 107 1 3 -259
+                77 -576 164 -561 155 -630 175 -607 183 6 2 301 -51 655 -117 l644 -122 103
+                109 c56 59 99 109 95 110 -5 1 -195 18 -423 38 -983 84 -1094 95 -1102 107 -4
+                7 -8 15 -8 18 0 5 231 -5 1157 -50 l452 -22 29 34 c16 18 60 69 96 113 l67 80
+                -83 7 c-46 3 -445 11 -888 17 -443 6 -905 14 -1027 18 l-223 6 0 -46z"/>
+                <path d="M2451 2130 c-12 -24 -19 -46 -16 -48 2 -3 57 -35 122 -72 l118 -68
+                14 27 c29 55 85 114 127 132 24 10 44 25 44 32 0 16 -47 22 -262 33 l-126 7
+                -21 -43z m134 -40 c0 -18 -6 -26 -23 -28 -24 -4 -38 18 -28 44 3 9 15 14 28
+                12 17 -2 23 -10 23 -28z"/>
+                <path d="M3365 2163 c-22 -1 -77 -5 -122 -9 -71 -5 -83 -8 -83 -24 0 -11 10
+                -20 28 -25 44 -11 90 -53 123 -110 l30 -53 124 70 123 71 -21 44 -21 43 -70
+                -2 c-39 -1 -89 -3 -111 -5z"/>
+                <path d="M2761 2003 c-65 -73 -64 -77 29 -190 44 -54 84 -99 88 -101 6 -2 50
+                105 89 213 4 11 -138 125 -155 125 -6 0 -29 -21 -51 -47z"/>
+                <path d="M3130 1999 c-36 -27 -69 -54 -74 -59 -9 -9 71 -231 83 -229 5 0 104
+                119 154 185 18 24 18 25 -7 68 -23 40 -69 86 -85 86 -3 0 -35 -23 -71 -51z"/>
+                <path d="M2371 2005 c-82 -40 -83 -41 -7 -115 l46 -44 0 29 c0 41 7 48 75 82
+                l59 30 -51 26 -51 26 -71 -34z"/>
+                <path d="M3526 2013 l-49 -25 53 -29 c73 -40 80 -47 80 -83 l1 -31 49 54 c51
+                56 60 75 38 84 -7 3 -38 16 -68 30 l-55 25 -49 -25z"/>
+                <path d="M2831 1407 l-173 -462 53 -45 c29 -25 68 -58 86 -75 l32 -30 -56
+                -128 -56 -128 26 -27 c15 -14 28 -24 30 -21 2 2 23 50 47 107 42 99 55 120 67
+                109 3 -3 -11 -54 -31 -114 -20 -59 -36 -117 -36 -128 1 -26 38 -71 49 -59 5 5
+                26 59 46 119 37 106 55 144 55 115 0 -8 -16 -74 -35 -147 l-36 -134 53 -69
+                c29 -38 55 -69 58 -69 3 0 28 31 56 70 l52 70 -34 127 c-47 173 -39 194 15 42
+                24 -69 46 -127 48 -129 6 -8 53 43 53 58 0 8 -17 66 -37 128 -20 62 -34 115
+                -30 119 12 12 23 -6 67 -113 23 -57 46 -103 49 -103 4 0 18 11 30 24 l22 24
+                -57 131 c-31 72 -55 133 -53 134 15 9 146 123 155 134 9 11 -27 116 -158 466
+                -94 249 -173 455 -177 459 -3 4 -84 -201 -180 -455z"/>
+                <path d="M2571 740 l-62 -130 -101 0 -100 0 7 -57 c3 -32 10 -74 14 -93 l7
+                -34 30 44 c23 36 36 46 62 48 18 2 32 1 32 -2 0 -4 -29 -60 -65 -127 -36 -66
+                -65 -126 -65 -133 0 -33 82 -76 143 -76 l31 0 -32 33 c-18 18 -32 43 -32 55 0
+                21 66 138 96 171 10 11 16 12 28 2 12 -10 13 -18 2 -49 -34 -99 -35 -99 51
+                -38 43 30 79 61 81 70 2 9 -13 43 -33 76 l-36 59 22 43 c12 24 39 74 61 111
+                22 38 38 70 36 71 -1 1 -26 21 -54 44 -29 23 -54 42 -56 42 -2 0 -33 -58 -67
+                -130z"/>
+                <path d="M3325 829 c-27 -23 -52 -43 -54 -44 -2 -2 22 -49 53 -105 31 -55 56
+                -109 56 -120 0 -10 -14 -39 -31 -64 -17 -26 -29 -56 -27 -68 2 -13 31 -41 80
+                -75 l77 -54 -15 53 c-9 29 -18 57 -21 61 -5 9 15 37 27 37 12 0 110 -162 110
+                -180 0 -9 -14 -32 -31 -53 l-30 -37 33 0 c43 1 113 33 128 59 9 18 1 40 -55
+                144 -36 68 -65 127 -65 130 0 4 14 7 30 7 25 0 35 -8 60 -47 19 -29 31 -41 34
+                -32 4 12 26 149 26 163 0 3 -45 6 -100 6 l-100 0 -65 130 c-36 72 -66 130 -68
+                130 -1 -1 -24 -19 -52 -41z"/>
+            </g>
+        </svg>
+
+        <div class="hero-content">
+            <p class="hero-eyebrow">// INITIALIZING PROFILE...</p>
+            <h1 class="hero-title">ALIF FIRDAUS <span class="accent">AZHAR</span></h1>
+            <p class="hero-subtitle">Software Engineer</p>
+            <p class="hero-tagline">
+                Software Engineer graduate specializing in Multimedia System.
+                Building reliable, adaptive systems at the intersection of precision and innovation.
+            </p>
+            <div class="hero-cta">
+                <a href="#portfolio" class="btn btn-primary">View Workspace</a>
+                <a href="cv.html" class="btn btn-outline">Download CV</a>
             </div>
-            <ul class="mb-0 ps-3" style="color: #b0bedb;">
-              <li class="mb-2">Developed secure Visitor Management System using PHP (CodeIgniter 4), MySQL (HeidiSQL), and Laragon with user authentication, RBAC for 3 user roles, CAPTCHA, QR code registration, and automated time-out handling.</li>
-              <li class="mb-2">Designed MySQL database schemas supporting 700+ users across 20 divisions with phone number fields, user roles, division-based categorization, searchable dropdowns, and sorting functionality.</li>
-              <li>Authored comprehensive technical documentation including UAT scripts, deployment guides, Apache/PHP configuration, and user manuals.</li>
-            </ul>
-          </div>
         </div>
-      </div>
-      
-      <!-- Computer Science Intern - SIRIM Berhad -->
-      <div class="col-lg-6">
-        <div class="card h-100">
-          <div class="card-body">
-            <div class="d-flex align-items-start mb-3">
-              <div class="me-3">
-                <i class="bi bi-server text-primary fs-2"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold mb-0" style="color:#f0f4ff;">Computer Science Intern</h5>
-                <h6 class="company mb-1">SIRIM Berhad</h6>
-                <div class="text-secondary small"><i class="bi bi-calendar3 me-1"></i>Dec 2022 – Feb 2023</div>
-              </div>
+        <div class="scroll-hint">SCROLL</div>
+    </section>
+    <!-- HERO END-->
+    <div class="section-divider"></div>
+<script>
+// ============================================================
+// PROJECT STATISTICS COUNTER - DETAILED CATEGORY VIEW
+// ============================================================
+document.addEventListener('DOMContentLoaded', function() {
+    function updateProjectStats() {
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        // Count all categories
+        const categoryCounts = {};
+        let totalProjects = 0;
+        let completedProjects = 0;
+        
+        projectCards.forEach(card => {
+            const category = card.getAttribute('data-category') || 'uncategorized';
+            categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+            totalProjects++;
+            
+            const status = card.querySelector('.status')?.textContent?.toLowerCase() || '';
+            if (status.includes('completed') || status.includes('stable') || status.includes('finished')) {
+                completedProjects++;
+            }
+        });
+        
+        // Find the stat cards
+        const statCards = document.querySelectorAll('.stat-card');
+        
+        // Update stat cards with category counts
+        if (statCards.length >= 1) {
+            // Featured Projects - can be any logic you want
+            const featuredCount = projectCards.length; // or filter by specific criteria
+            statCards[0].querySelector('h3').textContent = String(totalProjects).padStart(2, '0');
+            statCards[0].querySelector('p').textContent = 'Total Projects';
+        }
+        
+        if (statCards.length >= 2) {
+            statCards[1].querySelector('h3').textContent = completedProjects + '+';
+            statCards[1].querySelector('p').textContent = 'Completed';
+        }
+        
+        if (statCards.length >= 3) {
+            // Show the most common category
+            let maxCategory = 'Web';
+            let maxCount = 0;
+            for (const [cat, count] of Object.entries(categoryCounts)) {
+                if (count > maxCount) {
+                    maxCount = count;
+                    maxCategory = cat.charAt(0).toUpperCase() + cat.slice(1);
+                }
+            }
+            statCards[2].querySelector('h3').textContent = String(maxCount).padStart(2, '0');
+            statCards[2].querySelector('p').textContent = maxCategory + ' Projects';
+        }
+        
+        if (statCards.length >= 4) {
+            // Show the number of categories
+            const numCategories = Object.keys(categoryCounts).length;
+            statCards[3].querySelector('h3').textContent = String(numCategories).padStart(2, '0');
+            statCards[3].querySelector('p').textContent = 'Categories';
+        }
+        
+        // Debug log
+        console.log('Category Counts:', categoryCounts);
+        console.log('Total Projects:', totalProjects);
+        console.log('Completed:', completedProjects);
+    }
+    
+    // Initial update
+    updateProjectStats();
+    
+    // Update stats when search/filter changes
+    const searchInput = document.getElementById('projectSearch');
+    const filterSelect = document.getElementById('projectFilter');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            setTimeout(updateProjectStats, 150);
+        });
+    }
+    if (filterSelect) {
+        filterSelect.addEventListener('change', function() {
+            setTimeout(updateProjectStats, 150);
+        });
+    }
+});
+</script>
+    <!--PORTFOLIO STATS-->
+    <section class="section" id="skills">
+        <p class="section-label">Portfolio Overview</p>
+        <h2 class="section-title">Project Statistics</h2>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>03</h3>
+                <p>Featured Projects</p>
             </div>
-            <ul class="mb-0 ps-3" style="color: #b0bedb;">
-              <li class="mb-2">Configured, maintained, and troubleshot enterprise LAN/WAN infrastructure, ensuring stable connectivity for day-to-day IT operations.</li>
-              <li>Monitored network performance and diagnosed connectivity issues, maintaining minimal downtime across 10-15 systems.</li>
-            </ul>
-          </div>
+            <div class="stat-card">
+                <h3>06+</h3>
+                <p>Projects Deployed</p>
+            </div>
+            <div class="stat-card">
+                <h3>02</h3>
+                <p>Unity Projects</p>
+            </div>
+            <!--<div class="stat-card">
+                <h3>01</h3>
+                <p>AI Recommendation System</p>
+            </div>-->
         </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
-  <!-- CONTACT / CALL TO ACTION -->
-  <section id="contact" class="py-5" style="background:#131a28;">
-    <div class="container py-5">
-      <div class="row justify-content-center text-center">
-        <div class="col-lg-7">
-          <h2 class="section-title fs-1">Let’s build something</h2>
-          <p class="lead text-secondary mt-3">I’m open to freelance, full‑time roles, or just a tech chat. Reach out anytime.</p>
-          <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-            <a href="mailto:aliffirdausazhar217@gmail.com" class="btn btn-primary rounded-pill px-5 py-3 fw-semibold"><i class="bi bi-envelope-paper me-2"></i>Contact me through email</a>
-          </div>
-          <div class="mt-5 d-flex justify-content-center gap-3">
-            <a href="https://github.com/AlifF217" class="social-icon"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/alif-firdaus-bin-azhar-5aa16423a/" class="social-icon"><i class="bi bi-linkedin"></i></a>
-            <a href="https://www.youtube.com/@aliffirdausbinazhar2928" class="social-icon"><i class="bi bi-youtube"></i></a>
-            <a href="mailto:aliffirdausazhar217@gmail.com" class="social-icon"><i class="bi bi-envelope"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+    <!--PORTFOLIO STATS ENDS-->
+    <div class="section-divider"></div>
 
-  <!-- FOOTER -->
-  <footer class="py-4">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-start">
-          <span class="text-secondary small">© 2026 Alif Firdaus Azhar — built with <i class="bi bi-bootstrap-fill" style="color:#7aa9ff;"></i> Bootstrap</span>
-        </div>
-        <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
-          <a href="#" class="text-decoration-none text-secondary small me-3" style="color:#8896b5 !important;">Privacy</a>
-          <a href="#" class="text-decoration-none text-secondary small" style="color:#8896b5 !important;">Imprint</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!--PORTFOLIO LIST-->
+    <section class="section" id="portfolio">
+        <p class="section-label">Project Control Center</p>
+        <h2 class="section-title">Workspace Database</h2>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="workspace-controls">
+            <input type="text" id="projectSearch" placeholder="Search projects, technologies, or keywords...">
+            <select id="projectFilter">
+                <option value="all">All Categories</option>
+                <option value="web">Web</option>
+                <option value="unity">Unity</option>
+                <option value="animation">Animation</option>
+                <option value="m_android">Mobile</option>
+                <option value="system">System</option>
+                <option value="application">Application</option>
+                <option value="game">Game</option>
+            </select>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+
+            <!-- PROJECT 1 -->
+            <div class="project-card" data-category="web">
+                <div class="project-gallery">
+                    <img src="pics/project1_1.png" alt="Project 1 image 1">
+                    <img src="pics/project1_2.png" alt="Project 1 image 2">
+                    <img src="pics/project1_3.png" alt="Project 1 image 3">
+                    <img src="pics/project1_4.png" alt="Project 1 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2018</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">SMK Seksyen 7 Library Rental System</h2>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>PHP</span>
+                        <span>CSS</span>
+                        <span>Phpmyadmin</span>
+                        <span>MS Word</span>
+                        <span>Notepad++</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Web System Development</td>
+                            </tr>
+                            <tr>
+                                <td>Environment</td>
+                                <td>Phpmyadmin</td>
+                            </tr>
+                            <tr>
+                                <td>Focus</td>
+                                <td>Basic CRUD performance based on Library Rental Process</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>Completed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>
+                            This project involved developing a Library book rental system based on the process performed manually by SMK Seksyen 7 Library.
+                            <br><br>
+                            The system only focuses on performing the basic CRUD tasks.
+                        </p>
+                    </details>
+                    <div class="project-links">
+                        <a href="files/" target="_blank">View Project</a>
+                    </div>
+                          <div class="project-links">
+                        <a href="files/" target="_blank">View Files</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="project-card" data-category="web">
+                <div class="project-gallery">
+                    <img src="pics/project2_1.png" alt="Project 2 image 1">
+                    <img src="pics/project2_2.png" alt="Project 2 image 2">
+                    <img src="pics/project2_3.png" alt="Project 2 image 3">
+                    <img src="pics/project2_4.png" alt="Project 2 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2022</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">KPM Result Management System</h2>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>PHP</span>
+                        <span>CSS</span>
+                        <span>Phpmyadmin</span>
+                        <span>MS Word</span>
+                        <span>Notepad++</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Web System Development</td>
+                            </tr>
+                            <tr>
+                                <td>Environment</td>
+                                <td>Phpmyadmin</td>
+                            </tr>
+                            <tr>
+                                <td>Focus</td>
+                                <td>Basic CRUD performance based on Kolej Profesional Mara Beranang Result Management Process</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>Finished</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>
+                            This project involved developing a result management system based on the process performed manually by Kolej Profesional Mara Beranang Result Management Division.
+                            <br><br>
+                            The system only focuses on performing the basic CRUD tasks.
+                        </p>
+                    </details>
+                    <div class="project-links">
+                        <a href="docs/" target="_blank">View Project</a>
+                    </div>
+                    <div class="project-links">
+                        <a href="docs/" target="_blank">View Files</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="project-card" data-category="web">
+                <div class="project-gallery">
+                    <img src="pics/project3_1.png" alt="Project 3 image 1">
+                    <img src="pics/project3_2.png" alt="Project 3 image 2">
+                    <img src="pics/project3_3.png" alt="Project 3 image 3">
+                    <img src="pics/project3_4.png" alt="Project 3 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2023</span>
+                        <span class="status complete">STABLE VERSION</span>
+                    </div>
+                    <h2 class="project-title">SIRIM Berhad Management Web System</h2>
+                    <div class="tech-tags">
+                        <span>Java</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>PHP</span>
+                        <span>CPanel</span>
+                        <span>VSCode</span>
+                        <span>Canva</span>
+                        <span>Adobe Photoshop</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Corporate Website Development</td>
+                            </tr>
+                            <tr>
+                                <td>Environment</td>
+                                <td>Windows 11 + Notepad++</td>
+                            </tr>
+                            <tr>
+                                <td>Focus</td>
+                                <td>Professional Company Web Presence</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>Stable Production Version</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>
+                            A corporate documen tracking system development project created for Sirim Bhd., focusing on modern presentation, company visibility, responsive web design, and structured information delivery for clients and visitors.
+                            <br><br>
+                            The project involved designing and developing the website layout, optimizing responsive user interface behavior, organizing company information architecture, preparing branding assets, and managing deployment through xampp hosting environments.
+                            <br><br>
+                            Additional focus was placed on improving readability, accessibility, visual consistency, and long-term maintainability while ensuring stable performance across desktop and mobile devices.
+                        </p>
+                        <ul class="project-points">
+                            <li>Developed responsive corporate website structure</li>
+                            <li>Configured hosting deployment through xampp</li>
+                            <li>Designed company branding assets and visuals</li>
+                            <li>Implemented structured frontend layouts using HTML &amp; CSS</li>
+                            <li>Integrated PHP-based web functionality</li>
+                            <li>Optimized website readability and user experience</li>
+                        </ul>
+                    </details>
+                    <div class="project-links">
+                        <a href="#" target="_blank">Visit Website</a>
+                        <a href="#" target="_blank">View Documentation</a>
+                        <a href="#" target="_blank">View Files</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 4 -->
+            <div class="project-card" data-category="animation">
+                <div class="project-gallery">
+                    <img src="pics/project4_1.png" alt="Project 4 image 1">
+                    <img src="pics/project4_2.png" alt="Project 4 image 2">
+                   <!-- <img src="pics/project4_3.png" alt="Project 4 image 3">
+                    <img src="pics/project4_4.png" alt="Project 4 image 4">-->
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2023</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">TTTH2823 Animation Individual Final Assessment</h2>
+                    <div class="tech-tags">
+                        <span>Adobe Animate</span>
+                        <span>Krita</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Animation</td>
+                            </tr>
+                            <tr>
+                                <td>Application</td>
+                                <td>Adobe Animate</td>
+                            </tr>
+                            <tr>
+                                <td>Focus</td>
+                                <td>Animation</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>COMPLETED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>
+                            An animation based on Sonic The Hedgehog, a SEGA video game character that is animated based on the final assessment given by the lecturer for the final assessment.
+                        </p>
+                    </details>
+                    <div class="project-links">
+                        <a href="https://drive.google.com/file/d/1J5cjjwbPQeTQEbvFtsEGxNMqOdHkLqmZ/view?usp=sharing"_blank">View Project</a>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 5 -->
+            <div class="project-card" data-category="animation">
+                <div class="project-gallery">
+                    <img src="pics/project5_1.png" alt="Project 5 image 1">
+                    <img src="pics/project5_2.png" alt="Project 5 image 2">
+                    <img src="pics/project5_3.png" alt="Project 5 image 3">
+                    <img src="pics/project5_4.png" alt="Project 5 image 4">
+
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2023</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">TTTH2823 Animation Group Final Assessment</h2>
+                    <div class="tech-tags">
+                        <span>Adobe Animate</span>
+                        <span>Krita</span>
+                        <span>Audacity</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Animation</td>
+                            </tr>
+                            <tr>
+                                <td>Application</td>
+                                <td>Adobe Animate</td>
+                            </tr>
+                            <tr>
+                                <td>Focus</td>
+                                <td>Animation</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>COMPLETED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>
+                            An animation based on the concept that is animated based on the final assessment given by the lecturer for the final assessment.
+                        </p>
+                    </details>
+                    <div class="project-links">
+                        <a href="https://drive.google.com/file/d/1h1vJh63mcL-0RKjQyzXnkyy2E2GBke_h/view?usp=sharing" target="_blank">View Project</a>
+                        <a href="https://drive.google.com/drive/folders/13BDOzZIoRQAjB0MBPeV-6RCyyNI6Vjw1?usp=drive_link" target="_blank">View Files</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 6 -->
+            <div class="project-card" data-category="system">
+                <div class="project-gallery">
+                    <img src="pics/project6_1.png" alt="Project 6 image 1">
+                    <img src="pics/project6_2.png" alt="Project 6 image 2">
+                    <img src="pics/project6_3.png" alt="Project 6 image 3">
+                    <img src="pics/project6_4.png" alt="Project 6 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2023</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">Advanced Database Cermat Kitchenware System</h2>
+                    <div class="tech-tags">
+                        <span>VB.NET</span>
+                        <span>Microsoft Access</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Desktop Application</td>
+                            </tr>
+                            <tr>
+                                <td>Platform</td>
+                                <td>Microsoft Visual Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Database</td>
+                                <td>Microsoft Access</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>COMPLETED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>
+                            A Visual Basic Application system developed for the purpose of performing CRUD for a Kitchenware Business.
+                        </p>
+                    </details>
+                </div>
+            </div>
+
+            <!-- PROJECT 7 -->
+            <div class="project-card" data-category="web">
+                <div class="project-gallery">
+                    <img src="pics/project7_1.png" alt="Project 7 image 1">
+                    <img src="pics/project7_2.png" alt="Project 7 image 2">
+                    <img src="pics/project7_3.png" alt="Project 7 image 3">
+                    <img src="pics/project7_4.png" alt="Project 7 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2024</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">TTTP2543 Web Programming Student Personal Website and Tefal Kitchenware System Final Assessment</h2>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>PHP</span>
+                        <span>CSS</span>
+                        <span>Codeigniter 4</span>
+                        <span>Sublime Text</span>
+                        <span>Filezilla</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Web Application</td>
+                            </tr>
+                            <tr>
+                                <td>Platform</td>
+                                <td>Sublime Text</td>
+                            </tr>
+                            <tr>
+                                <td>Database</td>
+                                <td>Phpmyadmin</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>COMPLETED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>A compilation of assignments submitted to the lecturers and the final assignments developed by the students based on the assigned system types given by the lecturer.</p>
+                    </details>
+                      <div class="project-links">
+                        <a href="http://lrgs.ftsm.ukm.my/users/a200466" target="_blank">View Project</a>
+                    </div>
+                      <div class="project-links">
+                        <a href="https://drive.google.com/drive/folders/1i2wUOISMBiAg3BHbijjccPhR4aFEtDLO?usp=sharing" target="_blank">View Files</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 8 -->
+            <div class="project-card" data-category="application">
+                <div class="project-gallery">
+                    <img src="pics/project8_1.png" alt="Project 8 image 1">
+                    <img src="pics/project8_2.png" alt="Project 8 image 2">
+                    <img src="pics/project8_3.png" alt="Project 8 image 3">
+                    <img src="pics/project8_4.png" alt="Project 8 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2025</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">Kana, A Japanese Learning Mobile Application System</h2>
+                    <div class="tech-tags">
+                        <span>Android Studio</span>
+                        <span>Kotlin</span>
+                        <span>Firebase</span>
+                        <span>Krita</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Mobile Application</td>
+                            </tr>
+                            <tr>
+                                <td>Platform</td>
+                                <td>Android Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Database</td>
+                                <td>Firebase</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>COMPLETED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>Built with a team of 5 for UKM students using Android Studio &amp; Agile Methodology. Features gamified quizzes and interactive vocabulary drills for enhanced learning.</p>
+                    </details>
+                     <div class="project-links">
+                        <a href="https://drive.google.com/file/d/1mlLs7XzItau8osLHpGRaUvcooHnopT1n/view?usp=sharing" target="_blank">View Project</a>
+                    </div>
+                     <div class="project-links">
+                        <a href="https://github.com/AlifF217/kana" target="_blank">View Files</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 9 -->
+            <div class="project-card" data-category="animation">
+                <div class="project-gallery">
+                    <img src="pics/project9_1.png" alt="Project 9 image 1">
+                    <img src="pics/project9_2.png" alt="Project 9 image 2">
+                    <img src="pics/project9_3.png" alt="Project 9 image 3">
+                    <img src="pics/project9_4.png" alt="Project 9 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2025</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">TTTH3623 3D Modelling Final Assessment Animation Project</h2>
+                    <div class="tech-tags">
+                        <span>Autodesk 3DS Max</span>
+                        <span>Audacity</span>
+                        <span>Adobe Premiere Pro</span>
+                        <span>Krita</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>3D Animation</td>
+                            </tr>
+                            <tr>
+                                <td>Platform</td>
+                                <td>Autodesk 3DS Max</td>
+                            </tr>
+                            <tr>
+                                <td>Database</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>COMPLETED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>Animate a scene based on the final assessment given by lecturer using 3DS Max</p>
+                    </details>
+                     <div class="project-links">
+                        <a href="https://drive.google.com/file/d/12ImBpleAWjLxjd4NluJ8HV3qTDDWqCPO/view?usp=sharing" target="_blank">View Project</a>
+                    </div>
+                     <div class="project-links">
+                        <a href="https://drive.google.com/drive/folders/1i2wUOISMBiAg3BHbijjccPhR4aFEtDLO?usp=sharing" target="_blank">View Files</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 10 -->
+            <div class="project-card" data-category="game">
+                <div class="project-gallery">
+                    <img src="pics/project10_1.png" alt="Project 10 image 1">
+                    <img src="pics/project10_2.png" alt="Project 10 image 2">
+                    <img src="pics/project10_3.png" alt="Project 10 image 3">
+                    <img src="pics/project10_4.png" alt="Project 10 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2025</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">TTTH3863 Multimedia Game Final Assessment Project</h2>
+                    <div class="tech-tags">
+                        <span>Unity</span>
+                        <span>Autodesk 3DS MAX</span>
+                        <span>Mixamo</span>
+                        <span>Krita</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Game Development</td>
+                            </tr>
+                            <tr>
+                                <td>Platform</td>
+                                <td>Unity</td>
+                            </tr>
+                            <tr>
+                                <td>Database</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>COMPLETED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>Develop a working game based on the final assignment given by lecturer using Unity, 3DS Max and Krita</p>
+                    </details>
+                </div>
+            </div>
+
+            <!-- PROJECT 11 -->
+            <div class="project-card" data-category="game">
+                <div class="project-gallery">
+                    <img src="pics/project11_1.png" alt="Project 11 image 1">
+                    <img src="pics/project11_2.png" alt="Project 11 image 2">
+                    <img src="pics/project11_3.png" alt="Project 11 image 3">
+                    <img src="pics/project11_4.png" alt="Project 11 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2025</span>
+                        <span class="status complete">WIP</span>
+                    </div>
+                    <h2 class="project-title">Final Year Project, a Role Playing Game Based On Computer Science Subject Project</h2>
+                    <div class="tech-tags">
+                        <span>RPG Maker</span>
+                        <span>Krita</span>
+                        <span>Audacity</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Game Development</td>
+                            </tr>
+                            <tr>
+                                <td>Platform</td>
+                                <td>RPG Maker</td>
+                            </tr>
+                            <tr>
+                                <td>Database</td>
+                                <td>SQL</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>WIP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>Develop a working Role Playing game based on the planning, documentation written by myself and suggestions given by Supervisor using RPG Maker, Audacity and Krita</p>
+                    </details>
+                </div>
+            </div>
+
+            <!-- PROJECT 12 -->
+            <div class="project-card" data-category="web">
+                <div class="project-gallery">
+                    <img src="pics/project12_1.png" alt="Project 12 image 1">
+                    <img src="pics/project12_2.png" alt="Project 12 image 2">
+                    <img src="pics/project12_3.png" alt="Project 12 image 3">
+                    <img src="pics/project12_4.png" alt="Project 12 image 4">
+                </div>
+                <div class="project-content">
+                    <div class="project-topbar">
+                        <span class="project-year">2025-2026</span>
+                        <span class="status complete">COMPLETED</span>
+                    </div>
+                    <h2 class="project-title">Industrial Project, Setiausaha Kerajaan Negeri Selangor Visitor Management System</h2>
+                    <div class="tech-tags">
+                        <span>HTML</span>
+                        <span>PHP</span>
+                        <span>CSS</span>
+                        <span>Krita</span>
+                        <span>Sublime Text</span>
+                        <span>Codeigniter 4</span>
+                        <span>Laragon</span>
+                        <span>HeidiSQL</span>
+                    </div>
+                    <table class="project-table">
+                        <tbody>
+                            <tr>
+                                <td>Category</td>
+                                <td>Web Development</td>
+                            </tr>
+                            <tr>
+                                <td>Platform</td>
+                                <td>Sublime Text</td>
+                            </tr>
+                            <tr>
+                                <td>Database</td>
+                                <td>HeidiSQL through Laragon</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>COMPLETED</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <details>
+                        <summary>Read More</summary>
+                        <p>Develop a working Visitor management system based on the planning, documentation written by the student and suggestions given by the Industrial Supervisor using Sublime Text, Laragon, HeidiSQL and Krita</p>
+                    </details>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+    // ============================================================
+    // SEARCH AND FILTER FUNCTIONALITY
+    // ============================================================
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('projectSearch');
+        const filterSelect = document.getElementById('projectFilter');
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectsGrid = document.getElementById('projectsGrid');
+
+        function filterProjects() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const selectedCategory = filterSelect.value;
+            let visibleCount = 0;
+
+            projectCards.forEach(function(card) {
+                const category = card.getAttribute('data-category') || '';
+                const title = card.querySelector('.project-title')?.textContent?.toLowerCase() || '';
+                const techTags = card.querySelector('.tech-tags')?.textContent?.toLowerCase() || '';
+                const description = card.querySelector('details p')?.textContent?.toLowerCase() || '';
+                const year = card.querySelector('.project-year')?.textContent?.toLowerCase() || '';
+                const status = card.querySelector('.status')?.textContent?.toLowerCase() || '';
+                
+                const searchableText = title + ' ' + techTags + ' ' + description + ' ' + year + ' ' + status;
+                const categoryMatch = selectedCategory === 'all' || category === selectedCategory;
+                const searchMatch = searchTerm === '' || searchableText.includes(searchTerm);
+
+                if (categoryMatch && searchMatch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                    card.style.animation = 'fadeUp 0.5s ease forwards';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            const existingMessage = document.querySelector('.no-results-message');
+            if (visibleCount === 0) {
+                if (!existingMessage) {
+                    const noResults = document.createElement('p');
+                    noResults.className = 'no-results-message';
+                    noResults.style.cssText = `
+                        text-align: center;
+                        padding: 3rem;
+                        color: var(--wolf-silver);
+                        font-family: var(--font-body);
+                        font-size: 1.2rem;
+                        width: 100%;
+                        grid-column: 1 / -1;
+                    `;
+                    noResults.textContent = '🔍 No projects found. Try adjusting your search or filter.';
+                    projectsGrid.appendChild(noResults);
+                }
+            } else {
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+            }
+        }
+
+        searchInput.addEventListener('input', filterProjects);
+        filterSelect.addEventListener('change', filterProjects);
+        filterProjects();
+
+        let debounceTimer;
+        searchInput.addEventListener('input', function() {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(filterProjects, 200);
+        });
+    });
+    </script>
+
+
+    <!--PORTFOLIO LIST ENDS-->
+    <div class="section-divider"></div>
+
+    <!--EXPERIENCE-->
+    <section class="section reveal visible" id="experience">
+        <p class="section-label">Operational Log</p>
+        <h2 class="section-title">Experience &amp; Milestones</h2>
+
+        <div class="timeline-wrapper">
+            <div class="timeline-track" id="timelineTrack">
+                <div class="timeline-dot-traveller" id="timelineDot"></div>
+                <div class="year-marker active" data-year="2022" onclick="selectYear('2022')">
+                    <div class="year-dot"></div>
+                    <div class="year-label">2022</div>
+                </div>
+                <div class="year-marker" data-year="2023" onclick="selectYear('2023')">
+                    <div class="year-dot"></div>
+                    <div class="year-label">2023</div>
+                </div>
+                <div class="year-marker" data-year="2024" onclick="selectYear('2024')">
+                    <div class="year-dot"></div>
+                    <div class="year-label">2024</div>
+                </div>
+                <div class="year-marker" data-year="2025" onclick="selectYear('2025')">
+                    <div class="year-dot"></div>
+                    <div class="year-label">2025</div>
+                </div>
+                <div class="year-marker" data-year="2026" onclick="selectYear('2026')">
+                    <div class="year-dot"></div>
+                    <div class="year-label">2026</div>
+                </div>
+            </div>
+
+            <!-- Year panels -->
+            <div class="exp-panel active" id="panel-2022">
+                <div class="exp-card">
+                    <div class="exp-badge">Education</div>
+                    <div class="exp-date">AUG 2022 - FEB 2023</div>
+                    <div class="exp-title">Diploma in Computer Science</div>
+                    <div class="exp-org">Kolej Profesional Mara (KPM) - Beranang, Selangor</div>
+                    <div class="exp-desc">
+                        Commenced Diploma in Computer Science. Began foundational studies in fundamentals of programming, database, and application development.
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-badge">Internship</div>
+                    <div class="exp-date">DEC 2022 - FEB 2023</div>
+                    <div class="exp-title">IT Intern</div>
+                    <div class="exp-org">SIRIM Berhad, Section 2 , Shah Alam</div>
+                    <div class="exp-desc">
+                        Configured, maintained, and troubleshot enterprise LAN/WAN infrastructure, ensuring stable connectivity and
+                        supporting day-to-day IT operations while monitoring network performance and diagnosed connectivity problems, helping maintain minimal
+                        downtime across approximately 10-15 systems in the network environment.
+                    </div>
+                </div>
+            </div>
+            <div class="exp-panel" id="panel-2023">
+                <div class="exp-card">
+                    <div class="exp-badge">Education</div>
+                    <div class="exp-date">OCT 2023</div>
+                    <div class="exp-title">Bachelor in Software Engineering with Honours (Multimedia Systems Development)</div>
+                    <div class="exp-org">Universiti Kebangsaan Malaysia (UKM) - Bangi, Selangor</div>
+                    <div class="exp-desc">Commenced Bachelor in Software Engineering with Honours (Multimedia Systems Development). Began foundational studies in programming, basic software engineering concepts, project management, and multimedia.</div>
+                </div>
+                
+                <div class="exp-card">
+                    <div class="exp-badge">Academic</div>
+                    <div class="exp-date">2023 - 2024</div>
+                    <div class="exp-title">Core Coursework &amp; Foundations</div>
+                    <div class="exp-org">Universiti Kebangsaan Malaysia (UKM) - Bangi, Selangor</div>
+                    <div class="exp-desc">Deepened knowledge in C++, C#, Visual Basic, databases (SQL/SQLite), and web technologies (HTML, CSS, PHP). Develop a couple of small web development projects and built small Android Studio projects.</div>
+                </div>
+            </div>
+
+            <div class="exp-panel" id="panel-2024">
+                <div class="exp-card">
+                    <div class="exp-badge">FYP</div>
+                    <div class="exp-date">OCT 2024 — JUL 2025</div>
+                    <div class="exp-title">Final Year Project — Role Playing Game based on Computer Science subject System</div>
+                    <div class="exp-org">Universiti Kebangsaan Malaysia (UKM) - Bangi, Selangor</div>
+                    <div class="exp-desc">Developed a desktop game application using RPG Maker and SQL to provide a better interactive learning experience based on the way user learn Computer Science and play video game.</div>
+                </div>
+            </div>
+            <div class="exp-panel" id="panel-2025">
+                <div class="exp-card">
+                    <div class="exp-badge">Internship</div>
+                    <div class="exp-date">SEP 2025 — JAN 2026</div>
+                    <div class="exp-title">SUK Selangor Visitor Management System</div>
+                    <div class="exp-org">Bahagian Pengurusan Maklumat Setiausaha Kerajaan Negeri Selangor</div>
+                    <div class="exp-desc">
+                        Completed comprehensive system user training for the iTRAS i-ASET and i-Stor modules, gaining hands-on proficiency in asset management and document storage systems and
+                        successfully integrated training insights into system development by applying user-centered practices to enhance login module functionality, security features, and user role management
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-badge">INDUSTRIAL PROJECT</div>
+                    <div class="exp-date">SEP 2025 — JAN 2026</div>
+                    <div class="exp-title">SUK Selangor Visitor Management System</div>
+                    <div class="exp-org">Bahagian Pengurusan Maklumat Setiausaha Kerajaan Negeri Selangor</div>
+                    <div class="exp-desc">Developed a web-based system for the Selangor State Secretariat Office, transitioning a manual, error-prone process into a centralized web platform using CodeIgniter 4 and MySQL. This system automated registration, integrated QR code and WhatsApp features, and provided real-time monitoringthrough a dashboard for multiple user roles. The project successfully reduced data loss and improved administrative efficiency by enabling streamlined record tracking and time management.</div>
+                </div>
+            </div>
+
+            <div class="exp-panel" id="panel-2026">
+                <div class="exp-card">
+                    <div class="exp-badge">Past Project Enhancements</div>
+                    <div class="exp-date">2026</div>
+                    <div class="exp-title">Project Enhancement</div>
+                    <div class="exp-org">Personal / Academic Project</div>
+                    <div class="exp-desc">Enhance, change or update the past assignments and projects that has been developed based on the requirements but can be improved more if given more time, resources and effort during the final semester of completing Citra courses to graduate.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--EXPERIENCE ENDS-->
+    <div class="section-divider"></div>
+
+    <!--CONTACT-->
+    <section class="hero" id="contact">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+
+        <div class="contact-wrapper">
+            <!-- LEFT -->
+            <div class="contact-left">
+                <div class="contact-eyebrow">
+                    // COMMUNICATION INTERFACE ONLINE
+                </div>
+                <h1 class="contact-title">
+                    Contact <span>Network</span>
+                </h1>
+                <p class="contact-subtitle">
+                    Access all official communication channels,
+                    social platforms, development repositories,
+                    and professional networks connected to
+                    Alif Firdaus Azhar.
+                </p>
+
+                <div class="contact-grid">
+                    <a href="https://www.youtube.com/@aliffirdausbinazhar2928" target="_blank" class="contact-card">
+                        <i class="bi bi-youtube" style="font-size: 48px; color: #ff0000;"></i>
+                        <span>YouTube</span>
+                    </a>
+                    <a href="mailto:aliffirdausazhar217@gmail.com" class="contact-card">
+                        <i class="bi bi-envelope" style="font-size: 48px; color: #ea4335;"></i>
+                        <span>Gmail</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/alif-firdaus-bin-azhar-5aa16423a" target="_blank" class="contact-card">
+                        <i class="bi bi-linkedin" style="font-size: 48px; color: #0a66c2;"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/AlifF217" target="_blank" class="contact-card">
+                        <i class="bi bi-github" style="font-size: 48px; color: #ffffff;"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="contact-panel">
+                <div class="panel-label">
+                    // SIGNAL STATUS
+                </div>
+                <h2 class="panel-title">
+                    Open for Collaboration
+                </h2>
+                <p class="panel-text">
+                    Currently available for software development,
+                    UI/UX concepts, IT support,
+                    collaborative systems, and future-focused
+                    technology development opportunities.
+                </p>
+                <div class="info-box">
+                    <div class="info-label">EMAIL</div>
+                    <div class="info-value">aliffirdausazhar217@gmail.com</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">STATUS</div>
+                    <div class="info-value">Available for Opportunities</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">LOCATION</div>
+                    <div class="info-value">Malaysia</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">SPECIALIZATION</div>
+                    <div class="info-value">IT · Software · UI/UX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--CONTACT ENDS-->
+    
+    <div class="section-divider"></div>
+    
+    <!--FOOTER-->
+    <footer>
+        <span>ALIF FIRDAUS AZHAR</span> · CONTACT TERMINAL · © 2026
+    </footer>
+    <!--FOOTER ENDS-->
+
+    <script>
+        // ============================================================
+        // YEAR SELECTION FUNCTIONALITY
+        // ============================================================
+        function selectYear(year) {
+            const yearMarkers = document.querySelectorAll('.year-marker');
+            yearMarkers.forEach(marker => {
+                marker.classList.remove('active');
+            });
+            
+            const clickedMarker = document.querySelector(`.year-marker[data-year="${year}"]`);
+            if (clickedMarker) {
+                clickedMarker.classList.add('active');
+            }
+            
+            const allPanels = document.querySelectorAll('.exp-panel');
+            allPanels.forEach(panel => {
+                panel.classList.remove('active');
+                panel.style.display = 'none';
+            });
+            
+            const targetPanel = document.getElementById(`panel-${year}`);
+            if (targetPanel) {
+                targetPanel.style.display = 'grid';
+                targetPanel.classList.add('active');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const defaultYear = '2022';
+            selectYear(defaultYear);
+        });
+    </script>
+
+    <script>
+        // ============================================================
+        // SCROLL ANIMATION
+        // ============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.section, .stat-card, .project-card, .exp-card, .contact-card, .contact-panel');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+            
+            document.querySelectorAll('.reveal').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+
+    <script>
+        // ============================================================
+        // CLOCK FUNCTION
+        // ============================================================
+        function updateClock() {
+            const clockElement = document.getElementById('clock');
+            if (!clockElement) return;
+            
+            const now = new Date();
+            const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+            const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+            
+            let hours = now.getHours();
+            let minutes = String(now.getMinutes()).padStart(2, '0');
+            let seconds = String(now.getSeconds()).padStart(2, '0');
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+            
+            hours = hours % 12 || 12;
+            hours = String(hours).padStart(2, '0');
+            
+            const day = days[now.getDay()];
+            const date = String(now.getDate()).padStart(2, '0');
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            
+            const timeString = `${day} ${month} ${date} ${year}  ${hours}:${minutes}:${seconds} ${ampm}`;
+            clockElement.textContent = timeString;
+        }
+        
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
+    <script>
+    // ============================================================
+    // TIMELINE DOT ANIMATION
+    // ============================================================
+    let dotAnimationFrame = null;
+    let animationStartTime = 0;
+    const ANIMATION_DURATION = 6000;
+    const dot = document.getElementById('timelineDot');
+
+    function updateDotPosition(timestamp) {
+        if (!animationStartTime) {
+            animationStartTime = timestamp;
+        }
+        const elapsed = timestamp - animationStartTime;
+        let progress = (elapsed % ANIMATION_DURATION) / ANIMATION_DURATION;
+        const track = document.getElementById('timelineTrack');
+        const trackWidth = track ? track.offsetWidth - 60 : 0;
+        const markers = document.querySelectorAll('.year-marker');
+        
+        if (markers.length > 0) {
+            const dotPositionPx = 20 + (progress * (trackWidth - 20));
+            dot.style.left = dotPositionPx + 'px';
+            dot.style.animation = 'none';
+            dot.style.transform = 'translateY(-50%)';
+        }
+        dotAnimationFrame = requestAnimationFrame(updateDotPosition);
+    }
+
+    function startDotAnimation() {
+        if (dotAnimationFrame) {
+            cancelAnimationFrame(dotAnimationFrame);
+        }
+        animationStartTime = 0;
+        dotAnimationFrame = requestAnimationFrame(updateDotPosition);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        startDotAnimation();
+    });
+
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            if (dotAnimationFrame) {
+                cancelAnimationFrame(dotAnimationFrame);
+                dotAnimationFrame = null;
+            }
+        } else {
+            if (!dotAnimationFrame) {
+                startDotAnimation();
+            }
+        }
+    });
+
+    window.addEventListener('beforeunload', function() {
+        if (dotAnimationFrame) {
+            cancelAnimationFrame(dotAnimationFrame);
+            dotAnimationFrame = null;
+        }
+    });
+    </script>
+
+    <script>
+    // ============================================================
+    // HAMBURGER MENU TOGGLE FUNCTION
+    // ============================================================
+    function toggleMenu() {
+        const sideMenu = document.getElementById('sideMenu');
+        if (sideMenu) {
+            sideMenu.classList.toggle('open');
+        }
+    }
+
+    document.addEventListener('click', function(event) {
+        const sideMenu = document.getElementById('sideMenu');
+        const hamburger = document.querySelector('.hamburger');
+        if (sideMenu && sideMenu.classList.contains('open')) {
+            if (!sideMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                sideMenu.classList.remove('open');
+            }
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const sideMenuLinks = document.querySelectorAll('.side-menu a');
+        sideMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const sideMenu = document.getElementById('sideMenu');
+                if (sideMenu) {
+                    sideMenu.classList.remove('open');
+                }
+            });
+        });
+    });
+    </script>
+
+    <script>
+    // ============================================================
+    // FULLSCREEN IMAGE VIEWER
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // --- 1. Create the overlay elements ---
+        const overlay = document.createElement('div');
+        overlay.className = 'image-viewer-overlay';
+        overlay.id = 'imageViewer';
+
+        const closeBtn = document.createElement('span');
+        closeBtn.className = 'image-viewer-close';
+        closeBtn.innerHTML = '✕';
+
+        const viewerImg = document.createElement('img');
+        viewerImg.id = 'viewerImage';
+        viewerImg.alt = 'Fullscreen preview';
+
+        overlay.appendChild(closeBtn);
+        overlay.appendChild(viewerImg);
+        document.body.appendChild(overlay);
+
+        // --- 2. Functions to open and close ---
+        function openViewer(src) {
+            viewerImg.src = src;
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeViewer() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        // --- 3. Add click listeners to all gallery images ---
+        const galleryImages = document.querySelectorAll('.project-gallery img');
+        galleryImages.forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent accidental navigation
+                openViewer(this.src);
+            });
+        });
+
+        // --- 4. Close events (X button & background click) ---
+        closeBtn.addEventListener('click', closeViewer);
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+                closeViewer();
+            }
+        });
+
+        // --- 5. Close with Escape key ---
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.classList.contains('open')) {
+                closeViewer();
+            }
+        });
+
+    });
+</script>
+
 </body>
 </html>
